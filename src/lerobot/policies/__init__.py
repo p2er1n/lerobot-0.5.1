@@ -19,6 +19,7 @@ from .multi_task_dit.configuration_multi_task_dit import MultiTaskDiTConfig as M
 from .pi0.configuration_pi0 import PI0Config as PI0Config
 from .pi0_fast.configuration_pi0_fast import PI0FastConfig as PI0FastConfig
 from .pi05.configuration_pi05 import PI05Config as PI05Config
+from .pi05_crvla.configuration_pi05_crvla import PI05CRVLAConfig as PI05CRVLAConfig
 from .smolvla.configuration_smolvla import SmolVLAConfig as SmolVLAConfig
 from .smolvla.processor_smolvla import SmolVLANewLineProcessor
 from .tdmpc.configuration_tdmpc import TDMPCConfig as TDMPCConfig
@@ -32,6 +33,7 @@ __all__ = [
     "MultiTaskDiTConfig",
     "PI0Config",
     "PI05Config",
+    "PI05CRVLAConfig",
     "PI0FastConfig",
     "SmolVLAConfig",
     "SARMConfig",
