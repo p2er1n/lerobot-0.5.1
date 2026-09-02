@@ -22,6 +22,7 @@ import time
 import pytest
 import torch
 
+from lerobot.async_inference.constants import SUPPORTED_POLICIES
 from lerobot.configs.types import PolicyFeature
 from lerobot.utils.constants import OBS_STATE
 from tests.utils import require_package
@@ -116,6 +117,10 @@ def _make_obs(state: torch.Tensor, timestep: int = 0, must_go: bool = False):
 # -----------------------------------------------------------------------------
 # Tests
 # -----------------------------------------------------------------------------
+
+
+def test_pi05_crvla_is_supported():
+    assert "pi05_crvla" in SUPPORTED_POLICIES
 
 
 def test_time_action_chunk(policy_server):
