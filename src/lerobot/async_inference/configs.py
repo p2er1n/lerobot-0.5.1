@@ -201,3 +201,23 @@ class RobotClientConfig:
             "debug_visualize_queue_size": self.debug_visualize_queue_size,
             "aggregate_fn_name": self.aggregate_fn_name,
         }
+
+
+@dataclass
+class CompressedRobotClientConfig(RobotClientConfig):
+    """Configuration for the JPEG-compressing async inference client."""
+
+    jpeg_quality: int = field(
+        default=8,
+        metadata={"help": "JPEG quality applied to every camera frame before transmission (1-100)"},
+    )
+
+    def __post_init__(self):
+        super().__post_init__()
+        if not 1 <= self.jpeg_quality <= 100:
+            raise ValueError(f"jpeg_quality must be between 1 and 100, got {self.jpeg_quality}")
+
+    def to_dict(self) -> dict:
+        config_dict = super().to_dict()
+        config_dict["jpeg_quality"] = self.jpeg_quality
+        return config_dict
